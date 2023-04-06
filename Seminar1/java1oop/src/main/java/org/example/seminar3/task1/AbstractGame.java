@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -15,18 +16,21 @@ public abstract class AbstractGame implements Game{
     Integer attempts;
     String word;
     GameStatus gameStatus = GameStatus.INIT;
+    ArrayList<String> history = new ArrayList<>();
     @Override
     public void start(Integer sizeWord, Integer attempts) {
         this.sizeWord = sizeWord;
         this.attempts = attempts;
         this.word = generateWord();
         this.gameStatus = GameStatus.START;
+       // ArrayList<String> history = new ArrayList<>();
     }
 
     @Override
     public Answer inputValue(String value, int attempt) {
         int bulls = 0;
         int cows = 0;
+        history.add(value);
         for (int i = 0; i < value.length(); i++) {
             if (value.charAt(i) == word.charAt(i)) bulls++;
             Character character = value.charAt(i);
@@ -56,6 +60,10 @@ public abstract class AbstractGame implements Game{
             charList.remove(randomIndex);
         }
         return resWord;
+    }
+
+    public ArrayList<String> getHistory() {
+        return history;
     }
 
     abstract List<String> generateCharList();

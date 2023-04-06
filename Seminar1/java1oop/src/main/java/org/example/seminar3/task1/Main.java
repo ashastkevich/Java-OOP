@@ -15,11 +15,10 @@ f)	* реализовать restart().
  */
 public class Main {
     public static void main(String[] args) {
-
+        Scanner scanner = new Scanner(System.in);
         System.out.println("1 - Numbers");
         System.out.println("2 - Word in english");
         System.out.println("3 - Слово на русском");
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Choose your game: ");
         int num = scanner.nextInt();
         Game game = null;
@@ -45,5 +44,12 @@ public class Main {
         }
         if (game.getGameStatus().equals(GameStatus.WIN)) System.out.println("You win!");
         if (game.getGameStatus().equals(GameStatus.LOSE)) System.out.println("You lose!");
+        System.out.println("Print history? y/n ");
+        String printHistory = scanner.next();
+        if (printHistory.equals("y")) {
+            System.out.println(game.getHistory());
+        }
+
+        scanner.close();
     }
 }
