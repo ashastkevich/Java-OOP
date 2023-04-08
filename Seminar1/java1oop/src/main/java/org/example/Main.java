@@ -13,19 +13,19 @@ public class Main {
         Product scanner = new Product("Scanner", 60, 9, 10);
         Product webcam = new Product("WebCam", 15, 8, 10);
         Category computers = new Category("Computers",
-                                            new ArrayList<>(Arrays.asList(notebook, mouse, keyboard, monitor)));
+                new ArrayList<>(Arrays.asList(notebook, mouse, keyboard, monitor)));
         Category accessories = new Category("Accessories",
-                                            new ArrayList<>(Arrays.asList(printer, scanner, webcam)));
+                new ArrayList<>(Arrays.asList(printer, scanner, webcam)));
         User user1 = new User("User1", "pass1");
         User user2 = new User("User2", "pass2");
 
-        for (Product elem: computers.products) {
+        for (Product elem : computers.products) {
             System.out.println(elem);
         }
-        for (Product elem: accessories.products) {
+        for (Product elem : accessories.products) {
             System.out.println(elem);
         }
-        user1.buy(notebook,2);
+        user1.buy(notebook, 2);
         user2.buy(mouse, 3);
         user2.buy(monitor, 1);
         System.out.println("----------");
@@ -35,10 +35,10 @@ public class Main {
         System.out.println(user2.userBasket);
         System.out.println("----------");
 
-        for (Product elem: computers.products) {
+        for (Product elem : computers.products) {
             System.out.println(elem);
         }
-        for (Product elem: accessories.products) {
+        for (Product elem : accessories.products) {
             System.out.println(elem);
         }
 
